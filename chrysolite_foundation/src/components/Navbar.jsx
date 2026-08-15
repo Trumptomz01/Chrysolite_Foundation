@@ -1,8 +1,9 @@
 "use client"
-import Logo from "@/components/Logo";
-import Link from "next/link";
-import {useState} from "react";
-import {usePathname} from "next/navigation";
+import Logo from "./Logo"
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { FiMenu, FiX } from "react-icons/fi"
 
 const links = [
     {
@@ -45,33 +46,37 @@ const links = [
 
 const Navbar = () => {
     const [navVisible, setNavVisible] = useState(false)
-  return (
-      <nav>
-          <div
-              className={"flex relative items-center justify-between px-[30px] sm:px-[50px] lg:px-[100px] py-[20px]"}>
-              <div>
-                  <Logo/>
-              </div>
-              <ul className={"hidden md:flex gap-x-4 font-medium items-center"}>
-                  <NavLinks/>
-              </ul>
-              <div onClick={() => setNavVisible(!navVisible)} className={"md:hidden text-primary cursor-pointer"}>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                       stroke="currentColor" className="size-6">
-                      <path strokeLinecap="round" strokeLinejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-                  </svg>
-              </div>
-          </div>
-          {
-              navVisible && (
-                  <ul className={"md:hidden flex flex-col gap-y-2 items-center"}>
-                      <NavLinks/>
-                  </ul>
-              )
-          }
-      </nav>
-  )
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 8)
+        window.addEventListener("scroll", onScroll)
+        return () => window.removeEventListener("scroll", onScroll)
+    }, [])
+
+    return (
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/85 shadow-sm backdrop-blur-sm" : "bg-white"}`}>
+            <div
+                className={"flex relative items-center justify-between border-3 px-10 py-3 lg:py-5 lg:px-10"}>
+                <div>
+                    <Logo/>
+                </div>
+                <ul className={"hidden md:flex gap-x-1 font-medium items-center text-sm"}>
+                    <NavLinks/>
+                </ul>
+                <div onClick={() => setNavVisible(!navVisible)} className={"md:hidden text-primary cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors"}>
+                    {navVisible ? <FiX size={22} /> : <FiMenu size={22} />}
+                </div>
+            </div>
+            {
+                navVisible && (
+                    <ul className={"md:hidden absolute top-full left-0 right-0 flex flex-col gap-y-0.5 bg-white border-t border-gray-100 px-4 py-3 shadow-lg z-40"}>
+                        <NavLinks/>
+                    </ul>
+                )
+            }
+        </nav>
+    )
 }
 
 const NavLinks = () => {
@@ -79,15 +84,37 @@ const NavLinks = () => {
     return (
         <>
             {
-                links.map((appLink) => (
-                    <li key={appLink.title}>
-                        <div className={appLink.isButton ? "primary-btn" : ""}>
-                            <Link href={appLink.url} target={appLink.isExternal ? "_blank" : undefined} className={appLink.isButton ? "text-white" : pathname === appLink.url ? "font-semibold text-gray-900" : "text-gray-700 hover:text-gray-900"}>
+                links.map((appLink) => {
+                    const active = pathname === appLink.url
+
+                    if (appLink.isButton) {
+                        return (
+                            <li key={appLink.title}>
+                                <Link
+                                    href={appLink.url}
+                                    target={appLink.isExternal ? "_blank" : undefined}
+                                    className="block md:inline-block w-full md:w-auto text-center md:ml-3 px-5 py-2.5 md:py-2 bg-[#F59E0B] text-white font-semibold text-sm rounded-full hover:bg-amber-500 transition-colors shadow-sm"
+                                >
+                                    {appLink.title}
+                                </Link>
+                            </li>
+                        )
+                    }
+
+                    return (
+                        <li key={appLink.title}>
+                            <Link
+                                href={appLink.url}
+                                target={appLink.isExternal ? "_blank" : undefined}
+                                className={`block px-3.5 py-2.5 md:py-2 text-sm font-medium rounded-lg transition-colors ${
+                                    active ? "text-[#1A56A7] bg-blue-50" : "text-gray-600 hover:text-[#1A56A7] hover:bg-blue-50/60"
+                                }`}
+                            >
                                 {appLink.title}
                             </Link>
-                        </div>
-                    </li>
-                ))
+                        </li>
+                    )
+                })
             }
         </>
     )
