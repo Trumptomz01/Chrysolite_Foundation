@@ -43,7 +43,7 @@ const links = [
         isButton: true
     },
 ]
-// https://api.whatsapp.com/send/?phone=2349127480531&text&type=phone_number&app_absent=0
+
 const Navbar = () => {
     const [navVisible, setNavVisible] = useState(false)
     const [scrolled, setScrolled] = useState(false)
