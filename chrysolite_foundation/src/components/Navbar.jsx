@@ -55,7 +55,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/85 shadow-sm backdrop-blur-sm" : "bg-white"}`}>
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/85 shadow-sm backdrop-blur-md" : "bg-white"}`}>
             <div
                 className={"flex relative items-center justify-between border-3 px-10 py-3 lg:py-5 lg:px-10"}>
                 <div>
@@ -65,7 +65,7 @@ const Navbar = () => {
                     <NavLinks/>
                 </ul>
                 <div onClick={() => setNavVisible(!navVisible)} className={"md:hidden text-primary cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors"}>
-                    {navVisible ? <FiX size={22} /> : <FiMenu size={22} />}
+                    {navVisible ? <FiX size={26} /> : <FiMenu size={26} />}
                 </div>
             </div>
             {
