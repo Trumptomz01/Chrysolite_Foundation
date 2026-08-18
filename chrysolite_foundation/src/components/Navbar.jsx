@@ -25,15 +25,15 @@ const links = [
         isButton: false
     },
     {
-        title: "Blog",
-        url: "https://medium.com/@thechrysolitefoundation",
-        isExternal: true,
+        title: "Projects",
+        url: "/projects",
+        isExternal: false,
         isButton: false
     },
     {
         title: "Contact Us",
-        url: "https://api.whatsapp.com/send/?phone=2349127480531&text&type=phone_number&app_absent=0",
-        isExternal: true,
+        url: "/contact",
+        isExternal: false,
         isButton: false
     },
     {
@@ -43,7 +43,7 @@ const links = [
         isButton: true
     },
 ]
-
+// https://api.whatsapp.com/send/?phone=2349127480531&text&type=phone_number&app_absent=0
 const Navbar = () => {
     const [navVisible, setNavVisible] = useState(false)
     const [scrolled, setScrolled] = useState(false)

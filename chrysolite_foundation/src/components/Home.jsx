@@ -1,17 +1,19 @@
 import Hero from "./Hero"
-import AboutUs from "./AboutUs"
-import Contact from "./Contact"
+import AboutUs from "./about-us"
+// import Contact from "./Contact"
 import Projects from "./Projects"
+import Impact from "./impacts"
 // import Journey from "./Journey"
-// import GetInvolved from "./GetInvolved"
+import GetInvolved from "./GetInvolved"
 
 const Home = () => {
     return (
         <main>
             <Hero/>
             <AboutUs/>
+            <Impact/>
             <Projects/>
-            <Contact/>
+           <GetInvolved/>
         </main>
     )
 }
