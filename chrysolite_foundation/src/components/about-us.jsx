@@ -46,7 +46,7 @@ const aboutUs = () => {
                             <div className="text-3xl font-bold text-[#1A56A7]" style={{ fontFamily: "var(--font-display)" }}>30+</div>
                             <div className="text-sm text-gray-500 font-medium">Dedicated Volunteers</div>
                         </div>
-                        <div className="absolute -top-6 -right-4 md:-right-6 bg-[#F59E0B] rounded-2xl p-5 shadow-xl">
+                        <div className="absolute -top-6 -right-4 lg:-right-6 bg-[#F59E0B] rounded-2xl p-5 shadow-xl">
                             <div className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>2019</div>
                             <div className="text-sm text-amber-100 font-medium">Founded</div>
                         </div>
