@@ -3,6 +3,7 @@ import Link from "next/link"
 import { FiUsers, FiMapPin, FiArrowRight } from "react-icons/fi"
 import SectionTag from "@/components/SectionTag"
 import { projects } from "../data/projects"
+import { RevealGroup, RevealItem } from "@/components/RevealGroup"
 
 export const metadata = {
   title: "Our Projects — Chrysolite Foundation",
@@ -13,24 +14,28 @@ export default function page() {
     <div>
       <section className="relative py-28 bg-[#0F2A5C]">
         <div className="absolute inset-0">
-          <Image src="/images/community.jpg" alt="Projects" fill style={{ objectFit: "cover" }} className="opacity-20" />
+          <Image src="/images/2019/1.jpg" alt="Projects" fill style={{ objectFit: "cover" }} className="opacity-20 ease-in-out transition-all" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionTag>Our Projects</SectionTag>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mt-2" style={{ fontFamily: "var(--font-display)" }}>
-            Initiatives That Matter
-          </h1>
-          <p className="text-blue-200 mt-4 max-w-xl mx-auto leading-relaxed">
-            From agriculture to arts, from literacy to life skills — our projects are designed to meet communities where they are.
-          </p>
-        </div>
+        <RevealGroup className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <RevealItem><SectionTag>Our Projects</SectionTag></RevealItem>
+          <RevealItem>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mt-2" style={{ fontFamily: "var(--font-display)" }}>
+              Initiatives That Matter
+            </h1>
+          </RevealItem>
+          <RevealItem>
+            <p className="text-blue-200 mt-4 max-w-xl mx-auto leading-relaxed">
+              From agriculture to arts, from literacy to life skills — our projects are designed to meet communities where they are.
+            </p>
+          </RevealItem>
+        </RevealGroup>
       </section>
 
       <section className="py-20 lg:py-28 bg-[#F8F7F4]" style={{ fontFamily: "var(--font-sans)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 gap-8">
+          <RevealGroup className="grid sm:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-blue-50">
+              <RevealItem key={project.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-blue-50">
                 <div className="relative h-64 overflow-hidden bg-blue-100">
                   <Image src={project.photo} alt={project.name} fill style={{ objectFit: "cover" }} className="group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-4 left-4">
@@ -47,14 +52,14 @@ export default function page() {
                   </div>
                   <Link
                     href={`/projects/${project.id}`}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-[#1A56A7] text-white font-semibold text-sm rounded-full hover:bg-[#1546C7] transition-colors w-fit"
+                    className="flex items-center active:scale-95 gap-2 px-5 py-2.5 bg-[#1A56A7] text-white font-semibold text-sm rounded-full hover:bg-[#1546C7] transition-all w-fit"
                   >
                     View Project <FiArrowRight size={14} />
                   </Link>
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
     </div>

@@ -57,7 +57,7 @@ const Navbar = () => {
     return (
         <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/85 shadow-sm backdrop-blur-md" : "bg-white"}`}>
             <div
-                className={"flex relative items-center justify-between border-3 px-10 py-3 lg:py-5 lg:px-10"}>
+                className={"flex relative items-center justify-between border-3 px-10 py-3 lg:py-4 lg:px-10"}>
                 <div>
                     <Logo/>
                 </div>
@@ -93,7 +93,7 @@ const NavLinks = () => {
                                 <Link
                                     href={appLink.url}
                                     target={appLink.isExternal ? "_blank" : undefined}
-                                    className="block md:inline-block w-full md:w-auto text-center md:ml-3 px-5 py-2.5 md:py-2 bg-[#F59E0B] text-white font-semibold text-sm rounded-full hover:bg-amber-500 transition-colors shadow-sm"
+                                    className="block md:inline-block w-full md:w-auto text-center md:ml-3 tracking-wide px-5 py-2.5 md:py-2 bg-[#0056A4] text-white font-semibold text-sm rounded-full hover:bg-blue-700 active:scale-95 transition-all shadow-sm"
                                 >
                                     {appLink.title}
                                 </Link>
@@ -106,7 +106,7 @@ const NavLinks = () => {
                             <Link
                                 href={appLink.url}
                                 target={appLink.isExternal ? "_blank" : undefined}
-                                className={`block px-3.5 py-2.5 md:py-2 text-sm font-medium rounded-lg transition-colors ${
+                                className={`block px-3.5 py-2.5 md:py-2 text-sm font-medium tracking-wide rounded-lg transition-colors ${
                                     active ? "text-[#1A56A7] bg-blue-50" : "text-gray-600 hover:text-[#1A56A7] hover:bg-blue-50/60"
                                 }`}
                             >

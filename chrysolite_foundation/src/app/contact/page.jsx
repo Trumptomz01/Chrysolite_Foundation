@@ -64,7 +64,7 @@ export default function ContactUsPage() {
     <div style={{ fontFamily: "var(--font-sans)" }}>
       <section className="relative py-28 bg-[#1A56A7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-amber-300 text-[11px] font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-cyan-200/20 text-cyan-300 text-[11px] font-bold uppercase tracking-widest mb-6">
             <FiMail size={11} />
             Contact Us
           </div>

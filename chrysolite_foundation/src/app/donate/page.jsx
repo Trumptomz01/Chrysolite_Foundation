@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { FiHeart, FiUsers, FiBookOpen, FiCheck } from "react-icons/fi"
+import { RevealGroup, RevealItem } from "@/components/RevealGroup"
+import Reveal from "@/components/Reveal"
 
 const presetAmounts = [5000, 10000, 25000, 50000]
 
@@ -30,29 +32,38 @@ export default function DonatePage() {
   return (
     <div style={{ fontFamily: "var(--font-sans)" }}>
       <section className="relative py-24 bg-[#0F2A5C] text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-[11px] font-bold uppercase tracking-widest mb-6">
+        <RevealGroup className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RevealItem className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-400/20 border border-cyan-400/40 text-cyan-400 text-[11px] font-bold uppercase tracking-widest mb-6">
             <FiHeart size={11} />
             Donate
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-5" style={{ fontFamily: "var(--font-display)" }}>
-            Support the Mission
-          </h1>
-          <p className="text-blue-200 leading-relaxed">
-            Your donation helps Chrysolite Foundation advance empowerment and education for young
-            people in underprivileged and marginalized communities.
-          </p>
-        </div>
+          </RevealItem>
+
+          <RevealItem>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-5" style={{ fontFamily: "var(--font-display)" }}>
+              Support the Mission
+            </h1>
+          </RevealItem>
+
+          <RevealItem>
+            <p className="text-blue-200 leading-relaxed">
+              Your donation helps Chrysolite Foundation advance empowerment and education for young
+              people in underprivileged and marginalized communities.
+            </p>
+          </RevealItem>
+        </RevealGroup>
       </section>
 
       <section className="py-16 lg:py-24 bg-[#F8F7F4]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-12">
           {/* Impact side */}
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-[#111827] mb-6" style={{ fontFamily: "var(--font-display)" }}>
-              Your Support Makes an Impact
-            </h2>
-            <div className="space-y-5">
+          <RevealGroup className="lg:col-span-2">
+            <RevealItem>
+              <h2 className="text-2xl font-bold text-[#111827] mb-6" style={{ fontFamily: "var(--font-display)" }}>
+                Your Support Makes an Impact
+              </h2>
+            </RevealItem>
+
+            <RevealItem className="space-y-5">
               {impactPoints.map(({ icon: Icon, text }) => (
                 <div key={text} className="flex gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#EBF3FF] flex items-center justify-center shrink-0">
@@ -61,17 +72,18 @@ export default function DonatePage() {
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">{text}</p>
                 </div>
               ))}
-            </div>
-            <div className="mt-10 p-5 rounded-2xl bg-white border border-blue-50">
+            </RevealItem>
+
+            <RevealItem className="mt-10 p-5 rounded-2xl bg-white border border-blue-50">
               <p className="text-gray-500 text-xs leading-relaxed">
                 Official donation and payment details will be added here once available. For now,
                 you can also reach us directly via the Contact page to arrange a donation.
               </p>
-            </div>
-          </div>
+            </RevealItem>
+          </RevealGroup>
 
           {/* Donation form */}
-          <div className="lg:col-span-3">
+          <Reveal className="lg:col-span-3">
             <form onSubmit={handleDonate} className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-blue-50">
               {/* Frequency toggle */}
               <div className="flex bg-[#F8F7F4] rounded-full p-1 mb-8">
@@ -153,12 +165,12 @@ export default function DonatePage() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-[#F59E0B] text-white font-bold rounded-full hover:bg-amber-500 transition-colors"
+                className="w-full py-4 bg-[#0056A4] text-white font-bold rounded-full hover:bg-blue-700 transition-all active:scale-95"
               >
                 Donate ₦{selectedAmount ? selectedAmount.toLocaleString() : "0"} {frequency === "monthly" ? "Monthly" : "Now"}
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>
