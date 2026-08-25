@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { FiMail, FiPhone, FiMapPin, FiInstagram, FiLinkedin, FiFacebook, FiMessageCircle, FiSend } from "react-icons/fi"
 import { FaXTwitter } from "react-icons/fa6"
+import { RevealGroup } from "@/components/RevealGroup"
+import { RevealItem } from "@/components/RevealGroup"
 
 // export const metadata = {
 //   title: "Contact Us | Chrysolite Foundation",
@@ -63,31 +65,40 @@ export default function ContactUsPage() {
   return (
     <div style={{ fontFamily: "var(--font-sans)" }}>
       <section className="relative py-28 bg-[#1A56A7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-cyan-200/20 text-cyan-300 text-[11px] font-bold uppercase tracking-widest mb-6">
+        <RevealGroup className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <RevealItem className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-cyan-200/20 text-cyan-300 text-[11px] font-bold uppercase tracking-widest mb-6">
             <FiMail size={11} />
             Contact Us
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white" >
-            Let&apos;s Start a Conversation
-          </h1>
-          <p className="text-blue-200 mt-4 max-w-xl mx-auto">
-            Whether you want to volunteer, partner, or just learn more, we would love to hear from you.
-          </p>
-        </div>
+          </RevealItem>
+
+          <RevealItem>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white" >
+              Let&apos;s Start a Conversation
+            </h1>
+          </RevealItem>
+
+          <RevealItem>
+            <p className="text-blue-200 mt-4 max-w-xl mx-auto">
+              Whether you want to volunteer, partner, or just learn more, we would love to hear from you.
+            </p>
+          </RevealItem>
+        </RevealGroup>
       </section>
 
       <section className="py-20 lg:py-28 bg-[#F8F7F4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Contact info */}
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-[#111827] mb-8" >
-                Get in Touch
-              </h2>
+            <RevealGroup className="lg:col-span-2">
+              <RevealItem>
+                <h2 className="text-2xl font-bold text-[#111827] mb-8" >
+                  Get in Touch
+                </h2>
+              </RevealItem>
+              
               <div className="space-y-6 mb-10">
                 {contactInfo.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex gap-4">
+                  <RevealItem key={label} className="flex gap-4">
                     <div className="w-11 h-11 rounded-xl bg-[#EBF3FF] flex items-center justify-center shrink-0">
                       <Icon size={17} className="text-[#1A56A7]" />
                     </div>
@@ -95,22 +106,24 @@ export default function ContactUsPage() {
                       <div className="text-xs font-bold text-[#1A56A7] uppercase tracking-wider mb-0.5">{label}</div>
                       <div className="text-gray-700 text-sm">{value}</div>
                     </div>
-                  </div>
+                  </RevealItem>
                 ))}
               </div>
 
               <div>
-                <h3 className="font-bold text-[#111827] mb-4" style={{ fontFamily: "var(--font-display)" }}>Follow Us</h3>
+                <RevealItem><h3 className="font-bold text-[#111827] mb-4" style={{ fontFamily: "var(--font-display)" }}>Follow Us</h3></RevealItem>
                 <div className="flex gap-3">
                   {socials.map(({ Icon, label, href }) => (
-                    <a key={label} href={href} title={label} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-[#1A56A7] hover:bg-[#1A56A7] hover:text-white transition-all">
-                      <Icon size={16} />
-                    </a>
+                    <RevealItem key={label}>
+                      <a  href={href} title={label} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white border border-blue-100 flex items-center justify-center text-[#1A56A7] hover:bg-[#1A56A7] hover:text-white transition-all">
+                        <Icon size={16} />
+                      </a>
+                    </RevealItem>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-8 p-5 rounded-2xl bg-green-50 border border-green-100">
+              <RevealItem className="mt-8 p-5 rounded-2xl bg-green-50 border border-green-100">
                 <div className="flex items-center gap-3 mb-2">
                   <FiMessageCircle size={18} className="text-green-600" />
                   <span className="font-bold text-green-800 text-sm">Prefer WhatsApp?</span>
@@ -121,8 +134,8 @@ export default function ContactUsPage() {
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white font-semibold text-sm rounded-full hover:bg-green-700 transition-colors">
                   <FiMessageCircle size={14} /> Chat on WhatsApp
                 </a>
-              </div>
-            </div>
+              </RevealItem>
+            </RevealGroup>
 
             {/* Form */}
             <div className="lg:col-span-3">

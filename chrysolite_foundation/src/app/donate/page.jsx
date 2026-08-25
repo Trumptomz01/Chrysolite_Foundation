@@ -83,94 +83,97 @@ export default function DonatePage() {
           </RevealGroup>
 
           {/* Donation form */}
-          <Reveal className="lg:col-span-3">
-            <form onSubmit={handleDonate} className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-blue-50">
-              {/* Frequency toggle */}
-              <div className="flex bg-[#F8F7F4] rounded-full p-1 mb-8">
-                {["once", "monthly"].map((f) => (
-                  <button
-                    key={f}
-                    type="button"
-                    onClick={() => setFrequency(f)}
-                    className={`flex-1 py-3 rounded-full text-sm font-semibold transition-colors ${
-                      frequency === f ? "bg-[#1A56A7] text-white" : "text-gray-500 hover:text-gray-700"
-                    }`}
-                  >
-                    {f === "once" ? "One-Time" : "Monthly"}
-                  </button>
-                ))}
-              </div>
+          <RevealGroup className="lg:col-span-3">
+            <RevealItem>
 
-              {/* Preset amounts */}
-              <label className="text-sm font-semibold text-gray-700 mb-3 block">Select an Amount (₦)</label>
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {presetAmounts.map((amt) => (
-                  <button
-                    key={amt}
-                    type="button"
-                    onClick={() => { setAmount(amt); setCustomAmount("") }}
-                    className={`py-3.5 rounded-xl border text-sm font-semibold transition-colors flex items-center justify-center gap-2 ${
-                      !customAmount && amount === amt
-                        ? "border-[#1A56A7] bg-blue-50 text-[#1A56A7]"
-                        : "border-gray-200 text-gray-600 hover:border-blue-200"
-                    }`}
-                  >
-                    {!customAmount && amount === amt && <FiCheck size={14} />}
-                    ₦{amt.toLocaleString()}
-                  </button>
-                ))}
-              </div>
-
-              {/* Custom amount */}
-              <div className="mb-8">
-                <label className="text-sm font-semibold text-gray-700 mb-2 block">Or Enter a Custom Amount</label>
-                <div className="relative">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">₦</span>
-                  <input
-                    type="number"
-                    min="0"
-                    value={customAmount}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                    placeholder="0.00"
-                    className="w-full pl-8 pr-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F7F4] text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A56A7] transition"
-                  />
+              <form onSubmit={handleDonate} className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-blue-50">
+                {/* Frequency toggle */}
+                <div className="flex bg-[#F8F7F4] rounded-full p-1 mb-8">
+                  {["once", "monthly"].map((f) => (
+                    <button
+                      key={f}
+                      type="button"
+                      onClick={() => setFrequency(f)}
+                      className={`flex-1 py-3 rounded-full text-sm font-semibold transition-colors ${
+                        frequency === f ? "bg-[#1A56A7] text-white" : "text-gray-500 hover:text-gray-700"
+                      }`}
+                    >
+                      {f === "once" ? "One-Time" : "Monthly"}
+                    </button>
+                  ))}
                 </div>
-              </div>
 
-              {/* Donor info */}
-              <div className="space-y-4 mb-8">
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Full Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={donor.name}
-                    onChange={(e) => setDonor({ ...donor, name: e.target.value })}
-                    placeholder="Your name"
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F7F4] text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A56A7] transition"
-                  />
+                {/* Preset amounts */}
+                <label className="text-sm font-semibold text-gray-700 mb-3 block">Select an Amount (₦)</label>
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  {presetAmounts.map((amt) => (
+                    <button
+                      key={amt}
+                      type="button"
+                      onClick={() => { setAmount(amt); setCustomAmount("") }}
+                      className={`py-3.5 rounded-xl border text-sm font-semibold transition-colors flex items-center justify-center gap-2 ${
+                        !customAmount && amount === amt
+                          ? "border-[#1A56A7] bg-blue-50 text-[#1A56A7]"
+                          : "border-gray-200 text-gray-600 hover:border-blue-200"
+                      }`}
+                    >
+                      {!customAmount && amount === amt && <FiCheck size={14} />}
+                      ₦{amt.toLocaleString()}
+                    </button>
+                  ))}
                 </div>
-                <div>
-                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Email Address</label>
-                  <input
-                    type="email"
-                    required
-                    value={donor.email}
-                    onChange={(e) => setDonor({ ...donor, email: e.target.value })}
-                    placeholder="you@email.com"
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F7F4] text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A56A7] transition"
-                  />
-                </div>
-              </div>
 
-              <button
-                type="submit"
-                className="w-full py-4 bg-[#0056A4] text-white font-bold rounded-full hover:bg-blue-700 transition-all active:scale-95"
-              >
-                Donate ₦{selectedAmount ? selectedAmount.toLocaleString() : "0"} {frequency === "monthly" ? "Monthly" : "Now"}
-              </button>
-            </form>
-          </Reveal>
+                {/* Custom amount */}
+                <div className="mb-8">
+                  <label className="text-sm font-semibold text-gray-700 mb-2 block">Or Enter a Custom Amount</label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">₦</span>
+                    <input
+                      type="number"
+                      min="0"
+                      value={customAmount}
+                      onChange={(e) => setCustomAmount(e.target.value)}
+                      placeholder="0.00"
+                      className="w-full pl-8 pr-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F7F4] text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A56A7] transition"
+                    />
+                  </div>
+                </div>
+
+                {/* Donor info */}
+                <div className="space-y-4 mb-8">
+                  <div>
+                    <label className="text-sm font-semibold text-gray-700 mb-2 block">Full Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={donor.name}
+                      onChange={(e) => setDonor({ ...donor, name: e.target.value })}
+                      placeholder="Your name"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F7F4] text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A56A7] transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-semibold text-gray-700 mb-2 block">Email Address</label>
+                    <input
+                      type="email"
+                      required
+                      value={donor.email}
+                      onChange={(e) => setDonor({ ...donor, email: e.target.value })}
+                      placeholder="you@email.com"
+                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F7F4] text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A56A7] transition"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-[#0056A4] text-white font-bold rounded-full hover:bg-blue-700 transition-all active:scale-95"
+                >
+                  Donate ₦{selectedAmount ? selectedAmount.toLocaleString() : "0"} {frequency === "monthly" ? "Monthly" : "Now"}
+                </button>
+              </form>
+            </RevealItem>
+          </RevealGroup>
         </div>
       </section>
     </div>
