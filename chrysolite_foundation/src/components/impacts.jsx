@@ -1,8 +1,8 @@
 import { FiUsers, FiHeart, FiCalendar } from "react-icons/fi"
 import { FaStar, FaSeedling } from "react-icons/fa"
 import Reveal from "@/components/Reveal"
-import CountUp from "@/components/CountUp"
 import { RevealGroup, RevealItem } from "@/components/RevealGroup"
+import CountUp from "@/components/CountUp"
 
 const stats = [
     { num: "30", suffix: "+", label: "Dedicated Volunteers", icon: FiUsers },

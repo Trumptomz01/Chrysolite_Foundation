@@ -1,10 +1,11 @@
 "use client"
-
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { FiArrowRight } from "react-icons/fi"
 import { FaStar } from "react-icons/fa"
+import Reveal from "@/components/Reveal"
+import { RevealGroup, RevealItem } from "@/components/RevealGroup"
 
 const heroImages = [
     "/images/2023.jpg",
@@ -41,36 +42,40 @@ const Hero = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32" style={{ fontFamily: "var(--font-sans)" }}>
-                <div className="max-w-2xl">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full  border bg-white/10 backdrop-blur-md border-cyan-400/40 text-cyan-400 text-[11px] font-bold uppercase tracking-widest mb-8">
+                <RevealGroup className="max-w-2xl">
+                    <RevealItem className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full  border bg-white/10 backdrop-blur-md border-cyan-400/40 text-cyan-400 text-[11px] font-bold uppercase tracking-widest mb-8">
                         <FaStar size={9} />
                         Chrysolite Foundation   
-                    </div>
-                    <h1
-                        className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-                        style={{ fontFamily: "var(--font-display)" }}
-                    >
-                        Live, Love,<br />
-                        <span className="text-blue-600">Empower.</span>
-                    </h1>
-                    <p className="text-lg lg:text-xl text-blue-100 leading-relaxed mb-10 max-w-xl">
-                        We are advancing the welfare of future generations through empowerment and education, one community at a time.
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                        <Link
-                            href="/about-us"
-                            className="px-7 py-4 animation- border bg-white/30  backdrop-blur-sm border-gray-500  active:scale-95 text-white font-semibold rounded-full transition-all hover:bg-cyan-300/20"
+                    </RevealItem>
+                    <RevealItem>
+                        <h1
+                            className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+                            style={{ fontFamily: "var(--font-display)" }}
                         >
-                            Join Us
-                        </Link>
-                        <Link
-                            href="/projects"
-                            className="px-7 py-3.5 bg-white/20 hover:backdrop-blur-md hover:gap-3 active:scale-95 backdrop-blur-[1px] text-white font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center gap-2"
-                        >
-                            Learn More <FiArrowRight size={16} />
-                        </Link>
-                    </div>
-                </div>
+                            Live, Love,<br />
+                            <span className="text-blue-600">Empower.</span>
+                        </h1>
+                    </RevealItem>
+                    <RevealItem>
+                        <p className="text-lg lg:text-xl text-blue-100 leading-relaxed mb-10 max-w-xl">
+                            We are advancing the welfare of future generations through empowerment and education, one community at a time.
+                        </p>
+                    </RevealItem>
+                    <Reveal className="flex flex-wrap gap-4">
+                            <Link
+                                href="/about-us"
+                                className="px-7 py-4 animation- border bg-white/30  backdrop-blur-sm border-gray-500  active:scale-95 text-white font-semibold rounded-full transition-all hover:bg-cyan-300/20"
+                            >
+                                Join Us
+                            </Link>
+                            <Link
+                                href="/projects"
+                                className="px-7 py-3.5 bg-white/20 hover:backdrop-blur-md hover:gap-3 active:scale-95 backdrop-blur-[1px] text-white font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 flex items-center gap-2"
+                            >
+                                Learn More <FiArrowRight size={16} />
+                            </Link>
+                    </Reveal>
+                </RevealGroup>
             </div>
 
             {/* Slide indicator dots */}
