@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { FiMail, FiPhone, FiMapPin, FiInstagram, FiLinkedin, FiFacebook, FiMessageCircle, FiSend } from "react-icons/fi"
 import { FaXTwitter } from "react-icons/fa6"
-import { RevealGroup } from "@/components/RevealGroup"
-import { RevealItem } from "@/components/RevealGroup"
+import { RevealGroup } from "../../components/RevealGroup"
+import { RevealItem } from "../../components/RevealGroup"
 
 // export const metadata = {
 //   title: "Contact Us | Chrysolite Foundation",
