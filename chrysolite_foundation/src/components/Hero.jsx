@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { FiArrowRight } from "react-icons/fi"
 import { FaStar } from "react-icons/fa"
-import Reveal from "@/components/Reveal"
-import { RevealGroup, RevealItem } from "@/components/RevealGroup"
+import Reveal from "./Reveal"
+import { RevealGroup, RevealItem } from "./RevealGroup"
 
 const heroImages = [
     "/images/2023.jpg",
@@ -13,7 +13,7 @@ const heroImages = [
     "/images/2023/7.jpg",
 ]
 
-const SLIDE_INTERVAL = 7000 // ms between slides
+const SLIDE_INTERVAL = 4000 // ms between slides
 
 const Hero = () => {
     const [activeSlide, setActiveSlide] = useState(0)
@@ -43,7 +43,7 @@ const Hero = () => {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32" style={{ fontFamily: "var(--font-sans)" }}>
                 <RevealGroup className="max-w-2xl">
-                    <RevealItem className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full  border bg-white/10 backdrop-blur-md border-cyan-400/40 text-cyan-400 text-[11px] font-bold uppercase tracking-widest mb-8">
+                    <RevealItem className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full  border bg-amber-300/10 backdrop-blur-md border-amber-400/40 text-amber-300 text-[11px] font-bold uppercase tracking-widest mb-8">
                         <FaStar size={9} />
                         Chrysolite Foundation   
                     </RevealItem>
@@ -64,7 +64,7 @@ const Hero = () => {
                     <Reveal className="flex flex-wrap gap-4">
                             <Link
                                 href="/about-us"
-                                className="px-7 py-4 animation- border bg-white/30  backdrop-blur-sm border-gray-500  active:scale-95 text-white font-semibold rounded-full transition-all hover:bg-cyan-300/20"
+                                className="px-7 py-4 animation- border bg-white/30  backdrop-blur-sm border-gray-500  active:scale-95 text-white font-semibold rounded-full transition-all hover:border-blue-300/20 hover:bg-blue-500/50"
                             >
                                 Join Us
                             </Link>

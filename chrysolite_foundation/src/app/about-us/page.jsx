@@ -1,10 +1,10 @@
 // src/app/about-us/page.jsx
 import { FiGlobe, FiHeart, FiUsers } from "react-icons/fi"
 import { FaLightbulb } from "react-icons/fa"
-import SectionTag from "@/components/SectionTag"
+import SectionTag from "../../components/SectionTag"
 import { journey } from "../data/journey"
-import { RevealGroup } from "@/components/RevealGroup"
-import { RevealItem } from "@/components/RevealGroup"
+import { RevealGroup } from "../../components/RevealGroup"
+import { RevealItem } from "../../components/RevealGroup"
 
 export const metadata = {
   title: "About Us | Chrysolite Foundation",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
-import Reveal from "@/components/Reveal";
+import Reveal from "./Reveal";
 import { FaStar } from "react-icons/fa";
 
 const GetInvolved = () => {

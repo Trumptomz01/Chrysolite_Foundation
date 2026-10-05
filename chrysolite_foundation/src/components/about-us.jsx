@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Reveal from "@/components/Reveal"
-import { RevealGroup, RevealItem } from "@/components/RevealGroup"
+import Reveal from "./Reveal"
+import { RevealGroup, RevealItem } from "./RevealGroup"
 import { FiGlobe, FiHeart } from "react-icons/fi"
 import { FaLightbulb } from "react-icons/fa"
 import SectionTag from "./SectionTag"

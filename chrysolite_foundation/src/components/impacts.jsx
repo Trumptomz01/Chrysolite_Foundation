@@ -1,8 +1,8 @@
 import { FiUsers, FiHeart, FiCalendar } from "react-icons/fi"
 import { FaStar, FaSeedling } from "react-icons/fa"
-import Reveal from "@/components/Reveal"
-import { RevealGroup, RevealItem } from "@/components/RevealGroup"
-import CountUp from "@/components/CountUp"
+import Reveal from "./Reveal"
+import { RevealGroup, RevealItem } from "./RevealGroup"
+import CountUp from "./CountUp"
 
 const stats = [
     { num: "30", suffix: "+", label: "Dedicated Volunteers", icon: FiUsers },
@@ -30,7 +30,7 @@ const Impact = () => {
                <RevealGroup className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {stats.map(({ num, label, suffix, icon: Icon }) => (
                      <RevealItem key={label} className="bg-white/10 rounded-2xl p-6 lg:p-8 text-center border border-white/10 hover:bg-white/15 transition-colors">
-                           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-400/20 text-blue-500 mb-4">
+                           <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-400/20 border-amber-400/40 text-amber-300 mb-4">
                               <Icon className="animate-pulse" size={22} />
                            </div>
                            <div className="text-4xl lg:text-5xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>

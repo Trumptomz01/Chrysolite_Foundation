@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Reveal from "@/components/Reveal";
-import { RevealGroup, RevealItem } from "@/components/RevealGroup";
+import Reveal from "./Reveal";
+import { RevealGroup, RevealItem } from "./RevealGroup";
 import Link from "next/link";
 import { projects } from "../app/data/projects";
 import { FiArrowRight } from "react-icons/fi";
-import SectionTag from "@/components/SectionTag";
+import SectionTag from "./SectionTag";
 
 const Projects = () => {
   return (

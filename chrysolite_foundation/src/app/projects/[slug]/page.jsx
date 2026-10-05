@@ -4,8 +4,8 @@ import { notFound } from "next/navigation"
 import { FiUsers, FiMapPin, FiCalendar, FiArrowLeft } from "react-icons/fi"
 import { FaStar } from "react-icons/fa"
 import { projects } from "../../data/projects"
-import { RevealGroup } from "@/components/RevealGroup"
-import { RevealItem } from "@/components/RevealGroup"
+import { RevealGroup } from "../../../components/RevealGroup"
+import { RevealItem } from "../../../components/RevealGroup"
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.id }))

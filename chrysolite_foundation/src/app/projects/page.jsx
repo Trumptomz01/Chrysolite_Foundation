@@ -1,9 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FiUsers, FiMapPin, FiArrowRight } from "react-icons/fi"
-import SectionTag from "@/components/SectionTag"
+import { FiUsers, FiMapPin, FiArrowRight, FiHeart,  } from "react-icons/fi"
+import SectionTag from "../../components/SectionTag"
 import { projects } from "../data/projects"
-import { RevealGroup, RevealItem } from "@/components/RevealGroup"
+import { RevealGroup, RevealItem } from "../../components/RevealGroup"
 
 export const metadata = {
   title: "Our Projects — Chrysolite Foundation",
@@ -50,12 +50,21 @@ export default function page() {
                     <span className="text-gray-300">·</span>
                     <span className="text-xs text-gray-500 flex items-center gap-1"><FiMapPin size={11} /> {project.location}</span>
                   </div>
+                 <div className="flex flex-wrap gap-3">
                   <Link
                     href={`/projects/${project.id}`}
-                    className="flex items-center active:scale-95 gap-2 px-5 py-2.5 bg-[#1A56A7] text-white font-semibold text-sm rounded-full hover:bg-[#1546C7] transition-all w-fit"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-[#1A56A7] text-white font-semibold text-sm rounded-full hover:bg-[#1546C7] transition-colors"
                   >
                     View Project <FiArrowRight size={14} />
                   </Link>
+                  <Link
+                    href={`/donate?project=${project.id}`}
+                    className="flex items-center gap-2 px-5 py-2.5 border border-[#F59E0B] text-[#F59E0B] font-semibold text-sm rounded-full hover:bg-amber-50 transition-colors"
+                  >
+                    Give to This Project
+                    <FiHeart/>
+                  </Link>
+                  </div>
                 </div>
               </RevealItem>
             ))}

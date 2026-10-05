@@ -15,7 +15,7 @@ export const projects = [
   },
   {
     id: "ray-of-hope",
-    name: "Ray of Hope 3.0",
+    name: "Ray of Hope",
     tag: "Skills Training",
     tagColor: "bg-amber-100 text-amber-700",
     photo: "/images/2023/9.jpg",

@@ -4,8 +4,8 @@ import { FiInstagram, FiFacebook, FiLinkedin} from "react-icons/fi";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import {FaMedium  } from "react-icons/fa";
-import Reveal from "@/components/Reveal";
-import { RevealGroup, RevealItem } from "@/components/RevealGroup"
+import Reveal from "./Reveal";
+import { RevealGroup, RevealItem } from "./RevealGroup"
 
 const Footer = () => {
   const footerLinks = [    

@@ -20,7 +20,7 @@ const links = [
     },
     {
         title: "Merchandise",
-        url: "https://www.whatsapp.com/catalog/2349127480531/?app_absent=0",
+        url: "/merchandise",
         isExternal: true,
         isButton: false
     },
@@ -156,7 +156,7 @@ const NavLinks = ({ onLinkClick }) => {
                             href={appLink.url}
                             onClick={onLinkClick}
                             target={appLink.isExternal ? "_blank" : undefined}
-                            className={`block px-3.5 py-2.5 md:py-2 text-sm font-medium tracking-wide rounded-lg transition-colors ${
+                            className={`block px-3.5 py-2.5 md:py-2 text-sm font-medium tracking-wide rounded-full transition-colors ${
                                 active 
                                     ? "text-[#1A56A7] bg-blue-100" 
                                     : "text-gray-700 hover:text-[#1A56A7] hover:bg-blue-50/50"
